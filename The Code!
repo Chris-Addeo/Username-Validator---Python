@@ -1,0 +1,54 @@
+#Create For Loop
+loop = False
+while loop == False:
+    #Get Username and Create Variables
+    user = input("Enter a username: ")
+    length = len(user)
+    upper = 0
+    lower = 0
+    digits = 0
+    alphanum = True
+    fl_not_d = True
+    
+    #Create For Loop to Find Data:
+    for c in range(len(user)):
+        if user[c].isalnum() == False:
+            alphanum = False
+        if user[c].isdigit() == True:
+            digits += 1
+            if c == 0 or c == len(user) - 1:
+                fl_not_d = False
+        if user[c].isupper() == True:
+            upper += 1
+        if user[c].islower() == True:
+            lower += 1
+    
+    #Printing the Conditions
+    print("* Length of username:", length)
+    print("* All characters are alpha-numeric:", alphanum)
+    print("* First & last characters are not digits:", fl_not_d)
+    print("* # of uppercase characters in the username:", upper)
+    print("* # of lowercase characters in the username:", lower)
+    print("* # of digits in the username:", digits)
+    
+    #Continuing or Ending the Loop
+    if length >= 8 or length <= 15:
+        if alphanum == True:
+            if upper > 0:
+                if lower > 0:
+                    if digits > 0:
+                        print("Username is valid! \n")
+                        loop = True
+                    
+                    #Not True Results!
+                    else:
+                        print("Invalid username, try again \n")
+                else:
+                    print("Invalid username, try again \n")
+            else:
+                print("Invalid username, try again \n")
+        else:
+            print("Invalid username, try again \n")
+    else:
+        print("Invalid username, try again \n")
+
